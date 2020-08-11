@@ -86,7 +86,7 @@ for i in range(len(link)):
     link_dic[link[i][0]]=link[i][1:]
 
 
-f = open("leo11_route.sh", "w") 
+f = open("leo_route.sh", "w") 
 f.write("while true \n")
 f.write("do\n")
 
