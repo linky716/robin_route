@@ -87,6 +87,14 @@ for i in range(len(link)):
 
 
 f = open("leo_route.sh", "w") 
+
+f.write("route del -net 10.0.11.0/24 \n")
+f.write("route del -net 10.0.22.0/24 \n")
+f.write("route del -net 10.0.33.0/24 \n")
+f.write("route del -net 10.0.44.0/24 \n")
+f.write("route del -net 10.0.55.0/24 \n")
+f.write("\n")
+
 f.write("while true \n")
 f.write("do\n")
 
@@ -96,11 +104,12 @@ for k in range(len(flow)):
     gw.append(link_dic[flow[k][0]])
     f.write("route add -net 10.0.0.0/16 gw "+gw[0][0]+"\n" )
     f.write("route add -net 10.0.0.0/16 gw "+gw[0][1]+"\n" )
-
+    f.write("\n")
     f.write("sleep "+str(int(flow[k][2])-int(flow[k][1]))+"\n")
-
+    f.write("\n")
     f.write("route del -net 10.0.0.0/16\n")
     f.write("route del -net 10.0.0.0/16\n")
+    f.write("\n")
     del gw[:]
 
 
