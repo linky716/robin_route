@@ -97,7 +97,7 @@ for k in range(len(flow)):
     f.write("route add -net 10.0.0.0/16 gw "+gw[0][0]+"\n" )
     f.write("route add -net 10.0.0.0/16 gw "+gw[0][1]+"\n" )
 
-    f.write("slepp "+str(int(flow[k][2])-int(flow[k][1]))+"\n")
+    f.write("sleep "+str(int(flow[k][2])-int(flow[k][1]))+"\n")
 
     f.write("route del -net 10.0.0.0/16\n")
     f.write("route del -net 10.0.0.0/16\n")
