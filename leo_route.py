@@ -53,12 +53,21 @@ if __name__ == '__main__':
 p = os.popen("hostname")
 line = p.readline()
 hostname=line.strip()
-
 print('%s'%hostname)
+
+sp=[]
+dp=[]
+for i  in range(len(res_link)):
+    sourceport=str(res_link[i][3]).split('_')
+    destport=str(res_link[i][4]).split('_')
+    sp.append(sourceport[0])
+    dp.append(destport[0])
+
 link=[]
 for i in range(len(res_link)):
-    test=re.compile('%s+'%hostname)
-    if(test.match(res_link[i][3]) or test.match(res_link[i][4])):
+#    test=re.compile('%s+'%hostname)
+
+    if(hostname == sp[i] or hostname== dp[i]):
         link.append(res_link[i])
 
 link.sort()
@@ -117,5 +126,3 @@ for k in range(len(flow)):
 f.write("done\n")
 
 f.close()
-
-
