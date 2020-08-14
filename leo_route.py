@@ -46,7 +46,7 @@ if __name__ == '__main__':
     mysql = MYSQL('114.212.112.36', 'root', '123456', 'communication')
     mysql.connect()
     res_flow = mysql.fetchAll("link_id,starttime,endtime", "flow_table")
-    res_link = mysql.fetchAll("id,sourceip,destip,sourceport", "link_table")
+    res_link = mysql.fetchAll("id,sourceip,destip,sourceport,destport", "link_table")
    
     mysql.disconnect()
 
@@ -58,7 +58,7 @@ print('%s'%hostname)
 link=[]
 for i in range(len(res_link)):
     test=re.compile('%s+'%hostname)
-    if(test.match(res_link[i][3])):
+    if(test.match(res_link[i][3]) or test.match(res_link[i][4])):
         link.append(res_link[i])
 
 link.sort()
