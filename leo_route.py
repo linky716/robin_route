@@ -53,6 +53,7 @@ if __name__ == '__main__':
 p = os.popen("hostname")
 line = p.readline()
 hostname=line.strip()
+hostname=hostname.lower()
 print('%s'%hostname)
 
 sp=[]
